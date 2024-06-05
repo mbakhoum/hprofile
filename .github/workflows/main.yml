@@ -70,7 +70,7 @@ jobs:
           daemon_off: false
           dockerfile: ./Dockerfile
           context: ./  #Dockerfile path
-  Deploy on ECS:
+  Deploy_on_ECS:
     needs: Build_And_Publish
     runs-on: ubuntu-latest
     steps:
