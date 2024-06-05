@@ -64,7 +64,7 @@ jobs:
           access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secret_key: ${{ secrets.AWS_ACCESS_KEY }}
           registry: ${{ secrets.REGISTRY }}
-          repo: ${{ ECS_REPOSITORY }}
+          repo: ${{ env.ECS_REPOSITORY }}
           region: ${{ AWS_REGION }}
           tags: latest,${{github.run_number}}
           daemon_off: false
@@ -93,6 +93,6 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: ECS_SERVICE
-          cluster: ECS_CLUSTER
+          service: ${{ env.ECS_SERVICE }}
+          cluster: ${{ env.ECS_CLUSTER }}
           wait-for-service-stability: true
