@@ -47,9 +47,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Update application.properties file
         run: |
-        sed -i "s/^jdbc.username.*$/jdbc.username\=${{secrets.RDS_USER}}/g" src/main/resources/application.properties
-        sed -i "s/^jdbc.password.*$/jdbc.password\=${{secrets.RDS_PASS}}/g" src/main/resources/application.properties
-        sed -i "s/db01/${{secrets.RDS_ENDPOINT}}/g" src/main/resources/application.properties 
+          sed -i "s/^jdbc.username.*$/jdbc.username\=${{secrets.RDS_USER}}/g" src/main/resources/application.properties
+          sed -i "s/^jdbc.password.*$/jdbc.password\=${{secrets.RDS_PASS}}/g" src/main/resources/application.properties
+          sed -i "s/db01/${{secrets.RDS_ENDPOINT}}/g" src/main/resources/application.properties 
       - name: Build & upload image to ECR
         uses: appleboy/docker-ecr-action@master
         with:
