@@ -6,7 +6,6 @@ jobs:
     steps:
       - name: Fetch code checkout
         uses: actions/checkout@v4
-        run: echo ${{GITHUB_WORKSPACE}}
       - name: Maven test
         run: mvn test
       - name: checkstyle
@@ -27,4 +26,3 @@ jobs:
            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
-           -Dsonar.sources=$GITHUB_WORKSPACE
