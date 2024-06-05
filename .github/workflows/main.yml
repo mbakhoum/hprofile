@@ -10,4 +10,9 @@ jobs:
         run: mvn test
       - name: checkstyle
         run: mvn checkstyle:checkstyle
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '21'
 
